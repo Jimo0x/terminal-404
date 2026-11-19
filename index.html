@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terminal 404 — escape game</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22><circle cx=%225%22 cy=%225%22 r=%224%22 fill=%22%23e5172f%22/></svg>">
+<link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+<!-- démarrage -->
+<div id="boot" class="screen"><pre id="bootLog"></pre></div>
+
+<!-- écran de verrouillage -->
+<div id="lock" class="screen" hidden>
+  <div class="lock-clock"><div id="lockTime"></div><div id="lockDate"></div></div>
+  <div class="lock-box">
+    <div class="avatar">MR</div><h2>Marion Renard</h2><div class="dim mono" style="font-size:12px">m.renard@srv-prod</div>
+    <form id="loginForm"><input class="input" type="password" id="pw" placeholder="Mot de passe" autocomplete="off"><button class="btn">→</button></form>
+    <div class="lock-hint">Indice : <i>le nom de mon chat + l'année où je l'ai adopté</i></div>
+    <div id="lockErr" class="red" style="min-height:20px;font-size:13px"></div>
+  </div>
+  <div class="lock-widget"><div class="kicker">Photos récentes</div><div id="lockPhoto"></div><div class="dim" id="lockCaption" style="font-size:12px;margin-top:6px"></div></div>
+  <div class="lock-warden">⚠ WARDEN : purge de srv-prod dans <b id="lockTimer"></b></div>
+</div>
+
+<!-- bureau -->
+<div id="desk" class="screen" hidden>
+  <header class="osbar">
+    <div class="brand"><span class="dot"></span>srv-prod</div>
+    <div class="frags" id="frags"></div>
+    <div class="spacer"></div>
+    <button class="ico" id="hintBtn" title="Indice (−60 s)">💡 Indice</button>
+    <button class="ico" id="muteBtn" title="Son">🔊</button>
+    <div class="purge"><span>PURGE DANS</span><b id="timer">30:00</b></div>
+  </header>
+  <div id="wall"><svg class="eye" viewBox="0 0 200 120"><path d="M10 60 Q100 -20 190 60 Q100 140 10 60z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="100" cy="60" r="26" fill="none" stroke="currentColor" stroke-width="3"/><circle id="pupil" cx="100" cy="60" r="10" fill="currentColor"/></svg><div class="wall-title">WARDEN<small>IA de supervision v4.0.4</small></div></div>
+  <div id="icons"></div>
+  <div id="windows"></div>
+  <nav class="dock" id="dock"></nav>
+</div>
+
+<!-- fin -->
+<div id="end" class="screen" hidden><div class="end-box"><div class="kicker" id="endKicker"></div><h1 id="endTitle"></h1><p id="endText" class="muted"></p><div class="grid g3" id="endStats"></div><div id="achv"></div><button class="btn" onclick="location.reload()">Rejouer</button></div></div>
+
+<div id="taunts"></div>
+<script src="story.js"></script><script src="shell.js"></script><script src="photos.js"></script><script src="desktop.js"></script>
+</body>
+</html>
